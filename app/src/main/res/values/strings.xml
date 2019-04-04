@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Words</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_word">Word</string>
+    <string name="text_create">Create</string>
+    <string name="hint_transcription">Transcription</string>
+    <string name="hint_root">Root</string>
+    <string name="hint_part_of_speech">Part of speech</string>
+    <string name="hint_translation">Translation</string>
+    <string name="text_root">Root: %s</string>
+    <string name="text_translation">Translation: %s</string>
+</resources>
