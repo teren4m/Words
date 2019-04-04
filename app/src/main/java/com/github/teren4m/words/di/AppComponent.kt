@@ -1,17 +1,17 @@
 package com.github.teren4m.words.di
 
-import com.github.teren4m.base.di.fragmentx.AndroidxInjectionModule
 import com.github.teren4m.words.App
 import com.github.teren4m.words.activity.ActivityBuilder
 import com.github.teren4m.words.db.DataBaseModule
 import dagger.Component
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(
     modules = [
         AppModule::class,
-        AndroidxInjectionModule::class,
+        AndroidSupportInjectionModule::class,
         ActivityBuilder::class,
         UseCaseViewModel::class,
         RepositoryModule::class,

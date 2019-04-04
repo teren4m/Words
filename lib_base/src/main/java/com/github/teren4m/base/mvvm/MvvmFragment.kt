@@ -16,8 +16,7 @@ abstract class MvvmFragment<VM : Any, BV : ViewDataBinding> : BindingFragment<BV
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         inject()
-        binding {
-            setVariable(viewModelId, viewModel)
-        }
+        binding.setVariable(viewModelId, viewModel)
+
     }
 }

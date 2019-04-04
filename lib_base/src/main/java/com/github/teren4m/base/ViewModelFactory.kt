@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 class ViewModelFactory(private val f: () -> ViewModel) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return (f() as T).apply {
+        return f().let { it as T }.apply {
             if (!modelClass.isAssignableFrom(this::class.java)) {
                 throw IllegalArgumentException("Unknown ViewModel class")
             }

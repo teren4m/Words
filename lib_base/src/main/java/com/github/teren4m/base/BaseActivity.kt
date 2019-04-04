@@ -3,19 +3,19 @@ package com.github.teren4m.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.github.teren4m.base.di.fragmentx.HasAndroidxFragmentInjector
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-abstract class BaseActivity : AppCompatActivity(), HasAndroidxFragmentInjector {
+abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
-    lateinit var androidxFragmentInjector: DispatchingAndroidInjector<Fragment>
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         inject()
     }
 
-    override fun androidxFragmentInjector() = androidxFragmentInjector
+    override fun supportFragmentInjector() = fragmentInjector
 }

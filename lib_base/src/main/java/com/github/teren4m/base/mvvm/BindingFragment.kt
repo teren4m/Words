@@ -8,17 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
-abstract class BindingFragment<out T : ViewDataBinding> : Fragment() {
+abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
 
-    abstract val layoutId: Int
-    private lateinit var binding: T
+    protected abstract val layoutId: Int
+    protected lateinit var binding: T
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         return binding.root
-    }
-
-    open fun binding(block: T.() -> Unit) {
-        binding.block()
     }
 }
