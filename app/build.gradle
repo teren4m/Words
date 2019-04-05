@@ -36,9 +36,4 @@ dependencies {
     // optional - Test helpers
     androidTestImplementation "android.arch.work:work-testing:1.0.0"
 
-//    //Canary
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
-//    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
-//    debugImplementation 'com.github.teren4m.blockcanary:blockcanary-android:1.0.5'
-//    releaseImplementation 'com.github.teren4m.blockcanary:blockcanary-android-no-op:1.0.5'
 }

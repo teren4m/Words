@@ -1,19 +1,22 @@
 package com.github.teren4m.words.activity
 
+import com.github.teren4m.base.di.ActivityScope
+import com.github.teren4m.words.activity.main.FragmentBuilder
 import com.github.teren4m.words.activity.main.MainActivity
-import com.github.teren4m.words.activity.main.MainActivityComponent
-import dagger.Binds
+import com.github.teren4m.words.activity.main.MainActivityModule
 import dagger.Module
-import dagger.android.AndroidInjector
-import dagger.multibindings.ClassKey
-import dagger.multibindings.IntoMap
+import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class ActivityBuilder {
 
-    @Binds
-    @IntoMap
-    @ClassKey(MainActivity::class)
-    internal abstract fun bindMainActivity(builder: MainActivityComponent.Builder): AndroidInjector.Factory<*>
+    @ContributesAndroidInjector(
+        modules = [
+            MainActivityModule::class,
+            FragmentBuilder::class
+        ]
+    )
+    @ActivityScope
+    abstract fun bindMainActivity(): MainActivity
 
 }

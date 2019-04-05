@@ -1,30 +1,30 @@
 package com.github.teren4m.words.activity.main
 
+import ai.sync.daggerx.FragmentScope
 import com.github.teren4m.words.words.create.CreateWordFragment
-import com.github.teren4m.words.words.create.CreateWordFragmentComponent
+import com.github.teren4m.words.words.create.CreateWordFragmentModule
 import com.github.teren4m.words.words.list.WordsListFragment
-import com.github.teren4m.words.words.list.WordsListFragmentComponent
-import dagger.Binds
+import com.github.teren4m.words.words.list.WordsListFragmentModule
 import dagger.Module
-import dagger.android.AndroidInjector
-import dagger.multibindings.ClassKey
-import dagger.multibindings.IntoMap
+import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class FragmentBuilder {
 
-    @Binds
-    @IntoMap
-    @ClassKey(WordsListFragment::class)
-    internal abstract fun bindAccessPermsissionFragment(
-        builder: WordsListFragmentComponent.Builder
-    ): AndroidInjector.Factory<*>
+    @ContributesAndroidInjector(
+        modules = [
+            WordsListFragmentModule::class
+        ]
+    )
+    @FragmentScope
+    abstract fun bindWordsListFragment(): WordsListFragment
 
-    @Binds
-    @IntoMap
-    @ClassKey(CreateWordFragment::class)
-    internal abstract fun bindAccessCreateWordFragment(
-        builder: CreateWordFragmentComponent.Builder
-    ): AndroidInjector.Factory<*>
+    @ContributesAndroidInjector(
+        modules = [
+            CreateWordFragmentModule::class
+        ]
+    )
+    @FragmentScope
+    abstract fun bindCreateWordFragment(): CreateWordFragment
 
 }
