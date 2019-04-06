@@ -17,6 +17,5 @@ abstract class MvvmFragment<VM : Any, BV : ViewDataBinding> : BindingFragment<BV
         super.onViewCreated(view, savedInstanceState)
         inject()
         binding.setVariable(viewModelId, viewModel)
-
     }
 }

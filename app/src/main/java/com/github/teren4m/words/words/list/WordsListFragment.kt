@@ -7,13 +7,12 @@ import com.github.teren4m.base.adapter.LastAdapter
 import com.github.teren4m.base.mvvm.MvvmFragment
 import com.github.teren4m.base.observe
 import com.github.teren4m.words.BR
-import com.github.teren4m.words.IFragmentNavigation
+import com.github.teren4m.words.IRouter
 import com.github.teren4m.words.R
 import com.github.teren4m.words.databinding.FragmentWordsListBinding
 import com.github.teren4m.words.words.list.item.HebrewWordViewModel
 import com.github.teren4m.words.words.list.item.IHebrewWordViewModel
 import com.github.teren4m.words.words.list.model.WordItem
-import dagger.Lazy
 import javax.inject.Inject
 
 class WordsListFragment : MvvmFragment<IWordsListViewModel, FragmentWordsListBinding>() {
@@ -23,7 +22,7 @@ class WordsListFragment : MvvmFragment<IWordsListViewModel, FragmentWordsListBin
     override val layoutId = R.layout.fragment_words_list
 
     @Inject
-    lateinit var fragmentNavigation: Lazy<IFragmentNavigation>
+    lateinit var router: IRouter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,10 +32,6 @@ class WordsListFragment : MvvmFragment<IWordsListViewModel, FragmentWordsListBin
 
         binding.list.layoutManager = LinearLayoutManager(activity)
         binding.list.adapter = adapter
-
-        viewModel.onCreate.observe(this) {
-            fragmentNavigation.get().openCreate()
-        }
 
         viewModel.wordsList.observe(this) {
             adapter.set(it.map(::toViewModel))
