@@ -13,7 +13,7 @@ class FragmentNavigation @Inject constructor(
         fragment.activity?.run {
             supportFragmentManager
                 .beginTransaction()
-                .replace(containerId, CreateWordFragment())
+                .add(containerId, CreateWordFragment())
                 .addToBackStack(null)
                 .commit()
         }
