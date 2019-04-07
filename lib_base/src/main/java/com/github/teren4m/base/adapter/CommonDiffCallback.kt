@@ -22,7 +22,7 @@ class CommonDiffCallback(
         return if (oldItem is Id && newItem is Id) {
             oldItem.getId() == newItem.getId()
         } else {
-            oldItem == newItem
+            false
         }
     }
 
