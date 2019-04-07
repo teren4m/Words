@@ -1,6 +1,6 @@
 package com.github.teren4m.words.screens.word.list
 
-import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableField
 import com.github.teren4m.base.add
 import com.github.teren4m.base.mvvm.BaseViewModel
 import com.github.teren4m.base.observeOnMain
@@ -15,7 +15,7 @@ class WordsListViewModel
     wordUseCase: IWordUseCase
 ) : BaseViewModel(), IWordsListViewModel {
 
-    override val items = ObservableArrayList<WordItem>()
+    override val items = ObservableField<List<WordItem>>()
 
     init {
         wordUseCase.getAllWords()
@@ -27,10 +27,7 @@ class WordsListViewModel
             .subscribeOnDefaultThread()
             .observeOnMain()
             .subscribeBy(
-                onNext = {
-                    items.clear()
-                    items.addAll(it)
-                }
+                onNext = items::set
             )
             .add(this)
     }
