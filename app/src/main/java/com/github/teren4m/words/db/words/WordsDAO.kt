@@ -9,7 +9,7 @@ import io.reactivex.Observable
 @Dao
 interface WordsDAO {
 
-    @Query("SELECT * FROM WordDTO")
+    @Query("SELECT * FROM words")
     fun allWords(): Observable<List<WordDTO>>
 
     @Insert

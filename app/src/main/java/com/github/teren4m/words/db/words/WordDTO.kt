@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.github.teren4m.words.Uuid
 
-@Entity
+@Entity(tableName = "words")
 data class WordDTO(
     @PrimaryKey
     @ColumnInfo(name = "uuid")

@@ -8,7 +8,7 @@ import com.github.teren4m.words.screens.word.list.IWordsListViewModel
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
-    
+
     @Inject
     lateinit var wordsListViewModel: IWordsListViewModel
 
