@@ -4,8 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.github.teren4m.base.BaseActivity
 import com.github.teren4m.words.R
+import com.github.teren4m.words.screens.word.list.IWordsListViewModel
+import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
+    
+    @Inject
+    lateinit var wordsListViewModel: IWordsListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
