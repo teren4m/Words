@@ -1,4 +1,4 @@
-package com.github.teren4m.words.words.create
+package com.github.teren4m.words.words.word.create
 
 import androidx.fragment.app.Fragment
 import com.github.teren4m.base.getViewModel

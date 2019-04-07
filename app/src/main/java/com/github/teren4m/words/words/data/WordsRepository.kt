@@ -5,7 +5,7 @@ import com.github.teren4m.words.words.data.converters.IWordDTOToWordConverter
 import com.github.teren4m.words.words.data.converters.IWordToWordDTOConverter
 import com.github.teren4m.words.words.data.model.Word
 import io.reactivex.Completable
-import io.reactivex.Single
+import io.reactivex.Observable
 import javax.inject.Inject
 
 class WordsRepository @Inject constructor(
@@ -14,7 +14,7 @@ class WordsRepository @Inject constructor(
     private val wordDTOToWordConverter: IWordDTOToWordConverter
 ) : IWordsRepository {
 
-    override fun getAllWords(): Single<List<Word>> =
+    override fun getAllWords(): Observable<List<Word>> =
         wordsDAO.allWords()
             .map {
                 it.map(wordDTOToWordConverter::convert)

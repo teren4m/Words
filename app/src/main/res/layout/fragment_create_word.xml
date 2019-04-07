@@ -2,11 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="viewModel" type="com.github.teren4m.words.words.create.ICreateWordViewModel"/>
+        <variable name="viewModel" type="com.github.teren4m.words.words.word.create.ICreateWordViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:orientation="vertical"
+            style="@style/Page"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

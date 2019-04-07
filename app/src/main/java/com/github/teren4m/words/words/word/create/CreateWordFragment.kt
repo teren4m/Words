@@ -1,4 +1,4 @@
-package com.github.teren4m.words.words.create
+package com.github.teren4m.words.words.word.create
 
 import android.os.Bundle
 import android.view.View

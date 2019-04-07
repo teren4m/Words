@@ -1,6 +1,6 @@
-package com.github.teren4m.words.words.list.item
+package com.github.teren4m.words.words.word
 
-interface IHebrewWordViewModel {
+interface IWordViewModel {
 
     val word: String
 

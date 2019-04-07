@@ -1,8 +1,7 @@
 package com.github.teren4m.words.words.list
 
-import androidx.lifecycle.MutableLiveData
+import androidx.databinding.ObservableArrayList
 import com.github.teren4m.base.add
-import com.github.teren4m.base.mvvm.ActionLiveEvent
 import com.github.teren4m.base.mvvm.BaseViewModel
 import com.github.teren4m.base.observeOnMain
 import com.github.teren4m.base.subscribeOnDefaultThread
@@ -13,18 +12,12 @@ import javax.inject.Inject
 
 class WordsListViewModel
 @Inject constructor(
-    private val wordUseCase: IWordUseCase
+    wordUseCase: IWordUseCase
 ) : BaseViewModel(), IWordsListViewModel {
 
-    override val wordsList = MutableLiveData<List<WordItem>>()
+    override val items = ObservableArrayList<WordItem>()
 
-    override val onCreate = ActionLiveEvent()
-
-    override fun create() {
-        onCreate.call()
-    }
-
-    override fun update() {
+    init {
         wordUseCase.getAllWords()
             .map {
                 it.map { word ->
@@ -34,14 +27,10 @@ class WordsListViewModel
             .subscribeOnDefaultThread()
             .observeOnMain()
             .subscribeBy(
-                onSuccess = {
-                    onSuccess(it)
+                onNext = {
+                    items.addAll(it)
                 }
             )
             .add(this)
-    }
-
-    private fun onSuccess(list: List<WordItem>) {
-        wordsList.value = list
     }
 }

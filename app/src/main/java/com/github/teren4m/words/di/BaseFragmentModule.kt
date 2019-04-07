@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.github.teren4m.base.ViewModelFactory
 import com.github.teren4m.base.mvvm.BaseViewModel
 import com.github.teren4m.words.IRouter
+import com.github.teren4m.words.Router
 import dagger.Module
 import dagger.Provides
 import javax.inject.Provider
@@ -13,10 +14,8 @@ import javax.inject.Provider
 abstract class BaseFragmentModule<T : Fragment, VM : BaseViewModel, IVM> {
 
     @Provides
-    fun provideRouter(): IRouter =
-        object : IRouter {
-
-        }
+    fun provideRouter(router: Router): IRouter =
+        router
 
     @Provides
     fun provideFragment(fragment: T): Fragment =

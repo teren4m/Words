@@ -5,14 +5,14 @@ import com.github.teren4m.words.words.data.IWordsRepository
 import com.github.teren4m.words.words.data.model.Word
 import com.github.teren4m.words.words.list.domain.exception.*
 import io.reactivex.Completable
-import io.reactivex.Single
+import io.reactivex.Observable
 import javax.inject.Inject
 
 class WordUseCase @Inject constructor(
     private val wordsRepository: IWordsRepository
 ) : IWordUseCase {
 
-    override fun getAllWords(): Single<List<Word>> =
+    override fun getAllWords(): Observable<List<Word>> =
         wordsRepository.getAllWords()
 
     override fun createWord(

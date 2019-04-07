@@ -1,6 +1,6 @@
 package com.github.teren4m.base.adapter
 
-import com.github.teren4m.base.mvvm.ItemListViewModel
+import androidx.recyclerview.widget.RecyclerView
 import kotlin.reflect.KClass
 
 class LastAdapter(
@@ -14,6 +14,8 @@ class LastAdapter(
         itemTypesMap[T::class] = layoutId
     }
 
+    fun into(list: RecyclerView) = this.apply { list.adapter = this }
+
     override fun onBindViewHolder(holder: Holder, item: Any) {
         holder.binding.setVariable(itemId, item)
         holder.rootView.setOnClickListener {
@@ -21,13 +23,15 @@ class LastAdapter(
         }
     }
 
-    override fun getItemViewType(item: Any): Int =
-        if (item is ItemListViewModel) {
-            val key = itemTypesMap.keys.first {
-                item.isViewModelType(item)
-            }
-            itemTypesMap[key] ?: error("No layout for class ${item::class}")
+    override fun onBindViewHolder(holder: Holder, position: Int, payloads: MutableList<Any>) {
+        if (payloads.isEmpty()) {
+            super.onBindViewHolder(holder, position, payloads)
         } else {
-            itemTypesMap[item::class] ?: error("No layout for class ${item::class}")
+            list[position] = payloads[0]
+            onBindViewHolder(holder, payloads[0])
         }
+    }
+
+    override fun getItemViewType(item: Any): Int =
+        itemTypesMap[item::class] ?: error("No layout for class ${item::class}")
 }

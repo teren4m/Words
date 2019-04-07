@@ -26,3 +26,6 @@ fun <T> Single<T>.subscribeOnDefaultThread(): Single<T> =
 
 fun Completable.subscribeOnDefaultThread(): Completable =
     this.subscribeOn(defaultThreadScheduler)
+
+fun <T> Observable<T>.subscribeOnDefaultThread(): Observable<T> =
+    this.subscribeOn(defaultThreadScheduler)

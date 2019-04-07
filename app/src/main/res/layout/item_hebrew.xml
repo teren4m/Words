@@ -5,7 +5,7 @@
     <data>
         <variable
                 name="item"
-                type="com.github.teren4m.words.words.list.item.IHebrewWordViewModel"/>
+                type="com.github.teren4m.words.words.word.IWordViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="vertical"

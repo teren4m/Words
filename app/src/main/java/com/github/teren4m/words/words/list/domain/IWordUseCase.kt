@@ -2,7 +2,7 @@ package com.github.teren4m.words.words.list.domain
 
 import com.github.teren4m.words.words.data.model.Word
 import io.reactivex.Completable
-import io.reactivex.Single
+import io.reactivex.Observable
 
 interface IWordUseCase {
 
@@ -14,5 +14,5 @@ interface IWordUseCase {
         translation: String?
     ): Completable
 
-    fun getAllWords(): Single<List<Word>>
+    fun getAllWords(): Observable<List<Word>>
 }

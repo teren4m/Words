@@ -1,10 +1,10 @@
 package com.github.teren4m.base.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseAdapter(protected val list: MutableList<Any>) : RecyclerView.Adapter<Holder>() {
@@ -34,22 +34,47 @@ abstract class BaseAdapter(protected val list: MutableList<Any>) : RecyclerView.
 
     abstract fun getItemViewType(item: Any): Int
 
-    fun set(dataList: List<Any>) = apply {
-        list.clear()
-        add(dataList)
+    fun update(dataList: List<Any>, merge: Merge? = null) {
+        val diff = DiffUtil.calculateDiff(CommonDiffCallback(dataList, this.list, merge))
+        diff.dispatchUpdatesTo(this)
+        this.list.clear()
+        this.list.addAll(dataList)
     }
 
-    fun add(dataList: List<Any>) = apply {
+    fun setData(dataList: List<Any>) = apply {
+        list.clear()
+        addData(dataList)
+    }
+
+    fun addData(dataList: List<Any>) = apply {
         list.addAll(dataList)
         notifyDataSetChanged()
     }
 
-    fun add(data: Any) = apply {
-        list.add(data)
-        notifyItemInserted(list.size - 1)
+    fun addData(data: Any?) = apply {
+        if (data != null) {
+            list.add(data)
+            notifyItemInserted(list.size - 1)
+        }
     }
-}
 
-class Holder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
-    val rootView: View = binding.root
+    fun removeData(data: Any?) = apply {
+        if (data != null) {
+            list.remove(data)
+            notifyDataSetChanged()
+        }
+    }
+
+    fun setOnItemClick(f: (Any) -> Unit) = apply {
+        onItemClick = f
+    }
+
+    fun clear() {
+        list.clear()
+        notifyDataSetChanged()
+    }
+
+    fun get(): List<Any> = list
+
+    fun isEmpty() = list.isEmpty()
 }

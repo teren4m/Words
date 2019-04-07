@@ -7,9 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:windowBackground">@android:color/white</item>
         <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationColor</item>
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">gravity</item>
         <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
+    </style>
+
+    <style name="Page">
+        <item name="android:background">@android:color/white</item>
     </style>
 
 </resources>

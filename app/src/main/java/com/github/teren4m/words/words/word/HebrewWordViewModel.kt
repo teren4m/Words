@@ -1,11 +1,11 @@
-package com.github.teren4m.words.words.list.item
+package com.github.teren4m.words.words.word
 
-import com.github.teren4m.base.mvvm.ItemListViewModel
 import com.github.teren4m.words.words.list.model.WordItem
+import javax.inject.Inject
 
-class HebrewWordViewModel(
+class HebrewWordViewModel @Inject constructor(
     private val hebrewWord: WordItem.Hebrew
-) : IHebrewWordViewModel, ItemListViewModel {
+) : IWordViewModel {
 
     override val root: String by lazy {
         hebrewWord.word.root
@@ -22,8 +22,5 @@ class HebrewWordViewModel(
     override val word: String by lazy {
         hebrewWord.word.word + "/" + hebrewWord.word.transcription
     }
-
-    override fun isViewModelType(obj: Any): Boolean =
-        obj is IHebrewWordViewModel
 
 }
