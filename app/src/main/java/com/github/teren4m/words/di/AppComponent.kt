@@ -1,7 +1,7 @@
 package com.github.teren4m.words.di
 
 import com.github.teren4m.words.App
-import com.github.teren4m.words.activity.ActivityBuilder
+import com.github.teren4m.words.screens.activity.ActivityBuilder
 import com.github.teren4m.words.db.DataBaseModule
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule

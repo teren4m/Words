@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity.main.MainActivity">
+        tools:context=".screens.activity.main.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
                 android:id="@+id/words_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:name="com.github.teren4m.words.words.list.WordsListFragment"/>
+                android:name="com.github.teren4m.words.screens.word.list.WordsListFragment"/>
     </FrameLayout>
 
 </LinearLayout>

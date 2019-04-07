@@ -1,9 +1,9 @@
 package com.github.teren4m.words.di
 
-import com.github.teren4m.words.words.data.converters.IWordDTOToWordConverter
-import com.github.teren4m.words.words.data.converters.IWordToWordDTOConverter
-import com.github.teren4m.words.words.data.converters.WordDTOToWordConverter
-import com.github.teren4m.words.words.data.converters.WordToWordDTOConverter
+import com.github.teren4m.words.screens.word.data.converters.IWordDTOToWordConverter
+import com.github.teren4m.words.screens.word.data.converters.IWordToWordDTOConverter
+import com.github.teren4m.words.screens.word.data.converters.WordDTOToWordConverter
+import com.github.teren4m.words.screens.word.data.converters.WordToWordDTOConverter
 import dagger.Binds
 import dagger.Module
 

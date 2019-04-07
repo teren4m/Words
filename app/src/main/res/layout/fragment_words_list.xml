@@ -4,9 +4,12 @@
 
     <data>
 
+        <import type="com.github.teren4m.words.screens.word.list.IWordsListViewModel"/>
+        <import type="com.github.teren4m.words.screens.word.list.WordsConverter"/>
+
         <variable
                 name="viewModelConverter"
-                type="com.github.teren4m.words.words.list.WordsConverter"/>
+                type="com.github.teren4m.words.screens.word.list.WordsConverter"/>
 
         <variable
                 name="router"
@@ -14,7 +17,7 @@
 
         <variable
                 name="viewModel"
-                type="com.github.teren4m.words.words.list.IWordsListViewModel"/>
+                type="com.github.teren4m.words.screens.word.list.IWordsListViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

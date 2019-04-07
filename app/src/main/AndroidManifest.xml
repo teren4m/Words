@@ -12,7 +12,7 @@
             android:name=".App"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".activity.main.MainActivity"
+                android:name="com.github.teren4m.words.screens.activity.main.MainActivity"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme"
                 android:windowSoftInputMode="adjustPan">
