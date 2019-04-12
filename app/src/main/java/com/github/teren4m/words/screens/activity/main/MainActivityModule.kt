@@ -18,13 +18,4 @@ class MainActivityModule {
     @Provides
     fun provideActivity(activity: MainActivity): FragmentActivity = activity
 
-    @Provides
-    fun provideWordsListViewModel(
-        activity: FragmentActivity,
-        viewModel: Provider<WordsListViewModel>
-    ): IWordsListViewModel =
-        getViewModel<WordsListViewModel>(activity) {
-            viewModel.get()
-        }
-
 }

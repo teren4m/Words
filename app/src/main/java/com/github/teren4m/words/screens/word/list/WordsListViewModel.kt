@@ -15,7 +15,7 @@ class WordsListViewModel
     wordUseCase: IWordUseCase
 ) : BaseViewModel(), IWordsListViewModel {
 
-    override val items = ObservableField<List<WordItem>>()
+    override val items = ObservableField<List<WordItem>>(emptyList())
 
     init {
         wordUseCase.getAllWords()
