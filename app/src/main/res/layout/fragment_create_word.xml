@@ -2,7 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="viewModel" type="com.github.teren4m.words.screens.word.create.ICreateWordViewModel"/>
+
+        <import type="com.github.teren4m.words.screens.word.create.ICreateWordViewModel"/>
+
+        <variable
+                name="viewModel"
+                type="ICreateWordViewModel"/>
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,10 +30,9 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/EditText.Word"
                     android:hint="@string/hint_word"
-                    android:lines="1"
                     android:imeOptions="actionNext"
-                    android:inputType="text"
                     android:text="@={viewModel.word}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -44,10 +49,9 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/EditText.Word"
                     android:hint="@string/hint_transcription"
-                    android:lines="1"
                     android:imeOptions="actionNext"
-                    android:inputType="text"
                     android:text="@={viewModel.transcription}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,10 +68,9 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/EditText.Word"
                     android:hint="@string/hint_root"
-                    android:lines="1"
                     android:imeOptions="actionNext"
-                    android:inputType="text"
                     android:text="@={viewModel.root}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -84,10 +87,9 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/EditText.Word"
                     android:hint="@string/hint_part_of_speech"
-                    android:lines="1"
                     android:imeOptions="actionNext"
-                    android:inputType="text"
                     android:text="@={viewModel.partOfSpeech}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -104,10 +106,10 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/EditText.Word"
                     android:hint="@string/hint_translation"
-                    android:lines="1"
-                    android:imeOptions="actionNext"
-                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    app:edit_done="@{() -> viewModel.create()}"
                     android:text="@={viewModel.translation}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +122,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="@+id/word"
                 app:layout_constraintRight_toRightOf="@+id/word"
-                android:onClick="@{() -> viewModel.create()}"/>
+                android:onClick="@{() -> viewModel.create() }"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

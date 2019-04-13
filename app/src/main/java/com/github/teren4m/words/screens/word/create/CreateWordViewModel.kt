@@ -16,15 +16,20 @@ class CreateWordViewModel @Inject constructor(
 
     override val onBack = ActionLiveEvent()
 
-    override val word = ObservableField<String>("1")
+    override val word = ObservableField<String>("")
+    override val wordError = ObservableField<String>("")
 
-    override val transcription = ObservableField<String>("1")
+    override val transcription = ObservableField<String>("-")
+    override val transcriptionError = ObservableField<String>("-")
 
-    override val root = ObservableField<String>("1")
+    override val root = ObservableField<String>("-")
+    override val rootError = ObservableField<String>("-")
 
-    override val partOfSpeech = ObservableField<String>("1")
+    override val partOfSpeech = ObservableField<String>("-")
+    override val partOfSpeechError = ObservableField<String>("-")
 
-    override val translation = ObservableField<String>("1")
+    override val translation = ObservableField<String>("")
+    override val translationError = ObservableField<String>("")
 
     override fun create() {
         createWordUseCase.createWord(

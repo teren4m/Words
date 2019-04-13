@@ -6,6 +6,10 @@ class Router @Inject constructor(
     private val fragmentNavigation: FragmentNavigation
 ) : IRouter {
 
+    override fun back() {
+        fragmentNavigation.back()
+    }
+
     override fun openCreateWordFragment() {
         fragmentNavigation.openCreate()
     }

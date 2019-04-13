@@ -6,7 +6,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.github.teren4m.words"
-        minSdkVersion 28
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "0.0.1"
@@ -39,6 +39,6 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
     // optional - Test helpers
-    androidTestImplementation "android.arch.work:work-testing:1.0.0"
+    androidTestImplementation "android.arch.work:work-testing:1.0.1"
 
 }

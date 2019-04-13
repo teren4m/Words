@@ -4,4 +4,6 @@ interface IRouter {
 
     fun openCreateWordFragment()
 
+    fun back()
+
 }

@@ -8,7 +8,6 @@ import com.github.teren4m.base.observe
 import com.github.teren4m.words.BR
 import com.github.teren4m.words.IFragmentNavigation
 import com.github.teren4m.words.R
-import dagger.Lazy
 import javax.inject.Inject
 
 class CreateWordFragment : MvvmFragment<ICreateWordViewModel, ViewDataBinding>() {
@@ -18,13 +17,13 @@ class CreateWordFragment : MvvmFragment<ICreateWordViewModel, ViewDataBinding>()
     override val layoutId = R.layout.fragment_create_word
 
     @Inject
-    lateinit var fragmentNavigation: Lazy<IFragmentNavigation>
+    lateinit var fragmentNavigation: IFragmentNavigation
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.onBack.observe(this) {
-            fragmentNavigation.get().back()
+            fragmentNavigation.back()
         }
     }
 }

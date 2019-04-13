@@ -17,4 +17,13 @@
         <item name="android:background">@android:color/white</item>
     </style>
 
+    <style name="EditText">
+    </style>
+
+    <style name="EditText.Word">
+        <item name="android:lines">1</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
 </resources>

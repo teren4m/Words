@@ -7,6 +7,7 @@ import com.github.teren4m.words.BR
 import com.github.teren4m.words.R
 import com.github.teren4m.words.di.BaseModule
 import com.github.teren4m.words.screens.word.HebrewWordViewModel
+import com.github.teren4m.words.screens.word.list.model.Divider
 import dagger.Module
 import dagger.Provides
 import javax.inject.Provider
@@ -18,6 +19,7 @@ class WordsListFragmentModule : BaseModule<WordsListFragment>() {
     fun provideAdapter(): LastAdapter =
         LastAdapter(BR.item)
             .addType<HebrewWordViewModel>(R.layout.item_hebrew)
+            .addType<Divider>(R.layout.item_divider)
 
 
     @Provides
