@@ -9,6 +9,8 @@ import com.github.teren4m.words.BR
 import com.github.teren4m.words.IRouter
 import com.github.teren4m.words.R
 import com.github.teren4m.words.databinding.FragmentWordsListBinding
+import com.github.teren4m.words.screens.activity.main.IMainViewModel
+import com.github.teren4m.words.screens.activity.main.modes.ModeType
 import javax.inject.Inject
 
 class WordsListFragment : RouterMvvmFragment<IRouter, IWordsListViewModel, FragmentWordsListBinding>() {
@@ -25,6 +27,9 @@ class WordsListFragment : RouterMvvmFragment<IRouter, IWordsListViewModel, Fragm
     @Inject
     lateinit var adapter: LastAdapter
 
+    @Inject
+    lateinit var mainViewModel: IMainViewModel
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -33,5 +38,11 @@ class WordsListFragment : RouterMvvmFragment<IRouter, IWordsListViewModel, Fragm
 
         adapter.into(binding.list)
     }
+
+    override fun onResume() {
+        super.onResume()
+        mainViewModel.startMode(ModeType.MAIN)
+    }
+
 
 }
