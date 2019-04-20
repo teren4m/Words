@@ -48,7 +48,4 @@ dependencies {
     kapt "androidx.room:room-compiler:2.1.0-alpha06"
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
-    // optional - Test helpers
-    androidTestImplementation "android.arch.work:work-testing:1.0.1"
-
 }

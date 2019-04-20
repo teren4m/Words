@@ -3,7 +3,7 @@ package com.github.teren4m.fossil.navigator.screens
 import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.github.teren4m.base.BaseActivity
 import com.github.teren4m.fossil.navigator.R
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -11,15 +11,19 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.tbruyelle.rxpermissions2.RxPermissions
 import io.reactivex.disposables.Disposable
 
-class NavigationActivity : AppCompatActivity(), OnMapReadyCallback {
+class NavigationActivity : BaseActivity(), OnMapReadyCallback {
+
+    override val toolbarId = R.id.toolbar
+
+    override val layoutId = R.layout.activity_navigation
 
     private lateinit var mMap: GoogleMap
     private lateinit var rxPermissions: RxPermissions
     private lateinit var disposable: Disposable
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_navigation)
 
         rxPermissions = RxPermissions(this)
         val mapFragment = supportFragmentManager
@@ -47,6 +51,7 @@ class NavigationActivity : AppCompatActivity(), OnMapReadyCallback {
             isZoomControlsEnabled = true
             isMyLocationButtonEnabled = true
         }
+
 
     }
 
