@@ -5,7 +5,7 @@ import android.view.View
 import androidx.databinding.ViewDataBinding
 import javax.inject.Inject
 
-abstract class RouterMvvmFragment<R : Any, VM : Any, BV : ViewDataBinding> : MvvmFragment<VM, BV>() {
+abstract class RouterBindMvvmFragment<R : Any, VM : Any, BV : ViewDataBinding> : BindMvvmFragment<VM, BV>() {
 
     abstract val routerId: Int
 

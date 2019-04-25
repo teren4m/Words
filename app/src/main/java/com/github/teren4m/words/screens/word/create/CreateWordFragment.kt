@@ -3,7 +3,7 @@ package com.github.teren4m.words.screens.word.create
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
-import com.github.teren4m.base.mvvm.MvvmFragment
+import com.github.teren4m.base.mvvm.BindMvvmFragment
 import com.github.teren4m.base.observe
 import com.github.teren4m.words.BR
 import com.github.teren4m.words.IFragmentNavigation
@@ -12,7 +12,7 @@ import com.github.teren4m.words.screens.activity.main.IMainViewModel
 import com.github.teren4m.words.screens.activity.main.modes.ModeType
 import javax.inject.Inject
 
-class CreateWordFragment : MvvmFragment<ICreateWordViewModel, ViewDataBinding>() {
+class CreateWordFragment : BindMvvmFragment<ICreateWordViewModel, ViewDataBinding>() {
 
     override val viewModelId = BR.viewModel
 

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.teren4m.base.adapter.LastAdapter
-import com.github.teren4m.base.mvvm.RouterMvvmFragment
+import com.github.teren4m.base.mvvm.RouterBindMvvmFragment
 import com.github.teren4m.words.BR
 import com.github.teren4m.words.IRouter
 import com.github.teren4m.words.R
@@ -13,7 +13,7 @@ import com.github.teren4m.words.screens.activity.main.IMainViewModel
 import com.github.teren4m.words.screens.activity.main.modes.ModeType
 import javax.inject.Inject
 
-class WordsListFragment : RouterMvvmFragment<IRouter, IWordsListViewModel, FragmentWordsListBinding>() {
+class WordsListFragment : RouterBindMvvmFragment<IRouter, IWordsListViewModel, FragmentWordsListBinding>() {
 
     override val routerId = BR.router
 

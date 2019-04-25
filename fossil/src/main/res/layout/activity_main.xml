@@ -10,10 +10,12 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"/>
+
     <fragment
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/map"
-            tools:context=".screens.NavigationActivity"
-            android:name="com.google.android.gms.maps.SupportMapFragment"/>
+            tools:context=".screens.activity.MainActivity"
+            android:name="com.github.teren4m.fossil.navigator.screens.fragment.NavigationFragment"/>
+
 </LinearLayout>

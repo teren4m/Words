@@ -34,7 +34,7 @@
 
         <activity
                 android:theme="@style/AppTheme"
-                android:name=".screens.NavigationActivity"
+                android:name=".screens.activity.MainActivity"
                 android:label="@string/title_activity_navigation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
