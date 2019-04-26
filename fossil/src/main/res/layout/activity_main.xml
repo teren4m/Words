@@ -16,6 +16,6 @@
             android:layout_height="match_parent"
             android:id="@+id/map"
             tools:context=".screens.activity.MainActivity"
-            android:name="com.github.teren4m.fossil.navigator.screens.fragment.NavigationFragment"/>
+            android:name="com.github.teren4m.fossil.navigator.screens.fragment.navigation.NavigationFragment"/>
 
 </LinearLayout>

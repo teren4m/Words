@@ -7,7 +7,7 @@ import com.github.teren4m.fossil.navigator.network.model.GeographicCollectionSum
 import io.reactivex.Single
 import javax.inject.Inject
 
-class FossilDataSource
+class FossilNetworkDataSource
 @Inject constructor() {
 
     fun getCollectionsSummary(

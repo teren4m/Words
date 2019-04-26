@@ -1,4 +1,4 @@
-package com.github.teren4m.fossil.navigator.screens.fragment
+package com.github.teren4m.fossil.navigator.screens.fragment.navigation
 
 import androidx.fragment.app.Fragment
 import com.github.teren4m.base.di.BaseModule

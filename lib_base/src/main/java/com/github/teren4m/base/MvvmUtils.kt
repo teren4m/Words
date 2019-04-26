@@ -6,10 +6,6 @@ import androidx.lifecycle.*
 import com.github.teren4m.base.mvvm.BaseViewModel
 import io.reactivex.disposables.Disposable
 
-fun Disposable.add(viewModel: BaseViewModel) {
-    viewModel.compositeDisposable.add(this)
-}
-
 fun <T> LiveData<T>.observe(owner: LifecycleOwner, f: (T) -> Unit) = this.observe(owner, Observer {
     f(it)
 })
