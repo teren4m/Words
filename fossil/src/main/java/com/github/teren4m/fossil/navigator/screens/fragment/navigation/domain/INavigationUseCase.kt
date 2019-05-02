@@ -6,10 +6,9 @@ import io.reactivex.Observable
 
 interface INavigationUseCase {
 
-    fun getCollectionsSummary(
+    fun getCollections(
         minLocation: Location,
-        maxLocation: Location,
-        zoom: Float
+        maxLocation: Location
     ): Observable<MapCircle>
 
 }

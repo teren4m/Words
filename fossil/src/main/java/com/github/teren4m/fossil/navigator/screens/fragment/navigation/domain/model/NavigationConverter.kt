@@ -24,7 +24,7 @@ class NavigationConverter @Inject constructor(
             clusterId = source.id,
             longitude = source.location.longitude,
             latitude = source.location.latitude,
-            distantion = locationHelper.distanceInM(source.location, source.border)
+            distantion = 100000.0
         )
 
 }

@@ -13,15 +13,13 @@ class FossilRemoteRepository @Inject constructor(
 
     override fun getCollectionsSummary(
         minLocation: Location,
-        maxLocation: Location,
-        level: Int
+        maxLocation: Location
     ): Observable<Record> =
-        fossilNetworkDataSource.getCollectionsSummary(
+        fossilNetworkDataSource.getCollections(
             minLocation.longitude,
             maxLocation.longitude,
             minLocation.latitude,
-            maxLocation.latitude,
-            level
+            maxLocation.latitude
         )
             .toObservable()
             .flatMapIterable {

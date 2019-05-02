@@ -12,8 +12,6 @@ class FossilNetworkDataSource
 
     companion object {
         const val BASE_URL = "https://paleobiodb.org/data1.2/"
-        const val SHOW_COLLECTION =
-            "loc,bin,paleoloc,prot,timebins,stratext,lithext,env,geo,ctaph,comps,methods,resgroup,refattr,secref,ent,entname,crmod"
     }
 
     fun getCollectionsSummary(
@@ -31,8 +29,13 @@ class FossilNetworkDataSource
                 )
             )
 
-    fun getCollectionByCluster(clusterId: String): Single<RecordListRemote> =
-        "${BASE_URL}colls/list.json?clust_id=$clusterId&show=$SHOW_COLLECTION"
+    fun getCollections(
+        longitudeMin: Double,
+        longitudeMax: Double,
+        latitudeMin: Double,
+        latitudeMax: Double
+    ): Single<RecordListRemote> =
+        "${BASE_URL}colls/list.json?lngmin=$longitudeMin&lngmax=$longitudeMax&latmin=$latitudeMin&latmax=$latitudeMax&show=full"
             .httpGet()
             .rxResponseObject(
                 moshiDeserializerOf(
@@ -41,6 +44,9 @@ class FossilNetworkDataSource
             )
             .map {
                 it
+            }
+            .doOnError {
+                toString()
             }
 
 }

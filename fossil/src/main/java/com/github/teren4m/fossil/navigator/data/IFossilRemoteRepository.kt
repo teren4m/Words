@@ -8,8 +8,7 @@ interface IFossilRemoteRepository {
 
     fun getCollectionsSummary(
         minLocation: Location,
-        maxLocation: Location,
-        level: Int
+        maxLocation: Location
     ): Observable<Record>
 
 }

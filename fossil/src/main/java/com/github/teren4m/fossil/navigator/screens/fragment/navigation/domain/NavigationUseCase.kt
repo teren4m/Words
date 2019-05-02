@@ -12,22 +12,14 @@ class NavigationUseCase @Inject constructor(
     private val converter: NavigationConverter
 ) : INavigationUseCase {
 
-    override fun getCollectionsSummary(
+    override fun getCollections(
         minLocation: Location,
-        maxLocation: Location,
-        zoom: Float
+        maxLocation: Location
     ): Observable<MapCircle> =
         fossilRemoteRepository.getCollectionsSummary(
             minLocation,
-            maxLocation,
-            level = getLevel(zoom)
+            maxLocation
         )
             .map(converter::convert)
 
-
-    private fun getLevel(zoom: Float) = when {
-        zoom < 4.0F -> 1
-        zoom < 5.0F -> 2
-        else -> 3
-    }
 }

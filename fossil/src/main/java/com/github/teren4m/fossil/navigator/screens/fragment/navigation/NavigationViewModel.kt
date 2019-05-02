@@ -17,14 +17,13 @@ class NavigationViewModel @Inject constructor(
     override val points = MutableLiveData<List<MapCircle>>()
 
     override fun getPoints(zoom: Float, min: LatLng, max: LatLng) {
-        navigationUseCase.getCollectionsSummary(
+        navigationUseCase.getCollections(
             minLocation = Location(
                 min.latitude, min.longitude
             ),
             maxLocation = Location(
                 max.latitude, max.longitude
-            ),
-            zoom = zoom
+            )
         )
             .toList()
             .subscribeOnDefaultThread()
