@@ -33,7 +33,7 @@ class NavigationViewModel @Inject constructor(
                     points.postValue(it)
                 },
                 onError = {
-
+                    toString()
                 }
             ).addDisposable()
     }

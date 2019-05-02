@@ -5,7 +5,7 @@ import com.squareup.moshi.Json
 class RecordRemote (
 
     @field:Json(name = "oid")
-    val clusterId:String?,
+    val id:String?,
 
     @field:Json(name = "lv1")
     val clusterLevel1:String?,

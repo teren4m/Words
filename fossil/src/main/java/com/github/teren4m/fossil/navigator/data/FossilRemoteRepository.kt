@@ -1,7 +1,7 @@
 package com.github.teren4m.fossil.navigator.data
 
 import com.github.teren4m.fossil.navigator.core.location.Location
-import com.github.teren4m.fossil.navigator.data.model.Cluster
+import com.github.teren4m.fossil.navigator.data.model.Record
 import com.github.teren4m.fossil.navigator.data.model.DataConverter
 import com.github.teren4m.fossil.navigator.network.FossilNetworkDataSource
 import io.reactivex.Observable
@@ -15,7 +15,7 @@ class FossilRemoteRepository @Inject constructor(
         minLocation: Location,
         maxLocation: Location,
         level: Int
-    ): Observable<Cluster> =
+    ): Observable<Record> =
         fossilNetworkDataSource.getCollectionsSummary(
             minLocation.longitude,
             maxLocation.longitude,
@@ -24,7 +24,9 @@ class FossilRemoteRepository @Inject constructor(
             level
         )
             .toObservable()
-            .flatMapIterable { it.records }
+            .flatMapIterable {
+                it.records
+            }
             .map(DataConverter::convert)
 
 }

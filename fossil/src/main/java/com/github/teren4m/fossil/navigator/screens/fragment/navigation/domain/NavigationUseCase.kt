@@ -20,8 +20,14 @@ class NavigationUseCase @Inject constructor(
         fossilRemoteRepository.getCollectionsSummary(
             minLocation,
             maxLocation,
-            level = 1
+            level = getLevel(zoom)
         )
             .map(converter::convert)
 
+
+    private fun getLevel(zoom: Float) = when {
+        zoom < 4.0F -> 1
+        zoom < 5.0F -> 2
+        else -> 3
+    }
 }
