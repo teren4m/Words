@@ -1,7 +1,6 @@
 package com.github.teren4m.words.screens.word.list
 
 import androidx.databinding.ObservableField
-import com.github.teren4m.base.add
 import com.github.teren4m.base.mvvm.BaseViewModel
 import com.github.teren4m.base.observeOnMain
 import com.github.teren4m.base.subscribeOnDefaultThread
@@ -29,6 +28,6 @@ class WordsListViewModel
             .subscribeBy(
                 onNext = items::set
             )
-            .add(this)
+            .addDisposable()
     }
 }

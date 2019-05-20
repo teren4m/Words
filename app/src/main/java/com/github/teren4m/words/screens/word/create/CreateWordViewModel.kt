@@ -1,7 +1,6 @@
 package com.github.teren4m.words.screens.word.create
 
 import androidx.databinding.ObservableField
-import com.github.teren4m.base.add
 import com.github.teren4m.base.mvvm.ActionLiveEvent
 import com.github.teren4m.base.mvvm.BaseViewModel
 import com.github.teren4m.base.observeOnMain
@@ -45,7 +44,7 @@ class CreateWordViewModel @Inject constructor(
                 onComplete = ::onComplete,
                 onError = ::onError
             )
-            .add(this)
+            .addDisposable()
     }
 
     private fun onComplete() {
