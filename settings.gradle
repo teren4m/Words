@@ -1,1 +1,1 @@
-include ':app', ':lib_base', ':fossil', ':lib_composite_adapter'
+include ':app', ':fossil'

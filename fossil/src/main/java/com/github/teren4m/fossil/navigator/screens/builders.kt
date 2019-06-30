@@ -1,7 +1,7 @@
 package com.github.teren4m.fossil.navigator.screens
 
-import ai.sync.daggerx.FragmentScope
 import com.github.teren4m.base.di.ActivityScope
+import com.github.teren4m.base.di.FragmentScope
 import com.github.teren4m.fossil.navigator.screens.activity.MainActivity
 import com.github.teren4m.fossil.navigator.screens.fragment.navigation.NavigationFragment
 import com.github.teren4m.fossil.navigator.screens.fragment.navigation.NavigationFragmentModule

@@ -1,17 +1,15 @@
 package com.github.teren4m.fossil.navigator.screens.fragment.navigation
 
-import androidx.fragment.app.Fragment
-import com.github.teren4m.base.di.BaseModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Provider
 
 @Module
-class NavigationFragmentModule : BaseModule<NavigationFragment>() {
+class NavigationFragmentModule {
 
     @Provides
     fun provideViewModel(
-        fragment: Fragment,
+        fragment: NavigationFragment,
         viewModel: Provider<NavigationViewModel>
     ): INavigationViewModel =
         viewModel.get()

@@ -41,8 +41,6 @@ android {
 
 dependencies {
 
-    implementation project(":lib_base")
-
     kapt "com.google.dagger:dagger-compiler:2.21"
     kapt "com.google.dagger:dagger-android-processor:2.21"
     kapt "androidx.room:room-compiler:2.1.0-alpha06"
