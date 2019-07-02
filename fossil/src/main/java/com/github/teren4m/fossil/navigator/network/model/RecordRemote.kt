@@ -2,13 +2,13 @@ package com.github.teren4m.fossil.navigator.network.model
 
 import com.squareup.moshi.Json
 
-class RecordRemote (
+class RecordRemote(
 
     @field:Json(name = "oid")
-    val id:String?,
+    val id: String?,
 
     @field:Json(name = "lv1")
-    val clusterLevel1:String?,
+    val clusterLevel1: String?,
 
     @field:Json(name = "lv2")
     val clusterLevel2: String?,
@@ -17,7 +17,7 @@ class RecordRemote (
     val clusterLevel3: String?,
 
     @field:Json(name = "nco")
-    val collectionsNumber:Int?,
+    val collectionsNumber: Int?,
 
     @field:Json(name = "noc")
     val occurrencesNumber: Int?,
@@ -26,7 +26,7 @@ class RecordRemote (
     val longitude: Double?,
 
     @field:Json(name = "lat")
-    val latitude:Double?,
+    val latitude: Double?,
 
     @field:Json(name = "lx1")
     val minLongitude: Double?,

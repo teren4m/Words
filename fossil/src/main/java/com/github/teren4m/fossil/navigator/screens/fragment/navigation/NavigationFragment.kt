@@ -5,9 +5,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.github.teren4m.base.mvvm.MvvmFragment
-import com.github.teren4m.base.observe
+import com.github.teren4m.base.observeData
 import com.github.teren4m.fossil.navigator.R
-import com.github.teren4m.fossil.navigator.screens.fragment.navigation.domain.model.NavigationConverter
 import com.github.teren4m.fossil.navigator.utils.addCircles
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -15,7 +14,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.tbruyelle.rxpermissions2.RxPermissions
 import io.reactivex.disposables.Disposable
-import javax.inject.Inject
 
 class NavigationFragment : MvvmFragment<INavigationViewModel>(), OnMapReadyCallback {
 
@@ -23,9 +21,6 @@ class NavigationFragment : MvvmFragment<INavigationViewModel>(), OnMapReadyCallb
 
     private lateinit var rxPermissions: RxPermissions
     private lateinit var disposable: Disposable
-
-    @Inject
-    lateinit var converter: NavigationConverter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,10 +52,8 @@ class NavigationFragment : MvvmFragment<INavigationViewModel>(), OnMapReadyCallb
                 }
             }
 
-        viewModel.points.observe(this) {
-            it
-                .map(converter::convert)
-                .let(googleMap::addCircles)
+        viewModel.points.observeData(this) {
+            it.let(googleMap::addCircles)
         }
 
         googleMap.setOnCameraIdleListener {

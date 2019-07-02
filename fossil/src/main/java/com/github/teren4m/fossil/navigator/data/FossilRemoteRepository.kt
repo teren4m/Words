@@ -1,8 +1,8 @@
 package com.github.teren4m.fossil.navigator.data
 
 import com.github.teren4m.fossil.navigator.core.location.Location
-import com.github.teren4m.fossil.navigator.data.model.Record
 import com.github.teren4m.fossil.navigator.data.model.DataConverter
+import com.github.teren4m.fossil.navigator.data.model.Record
 import com.github.teren4m.fossil.navigator.network.FossilNetworkDataSource
 import io.reactivex.Observable
 import javax.inject.Inject
@@ -19,9 +19,10 @@ class FossilRemoteRepository @Inject constructor(
             minLocation.longitude,
             maxLocation.longitude,
             minLocation.latitude,
-            maxLocation.latitude
-        )
-            .toObservable()
+            maxLocation.latitude,
+            1000,
+            0
+        ).toObservable()
             .flatMapIterable {
                 it.records
             }
